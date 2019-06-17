@@ -1,0 +1,124 @@
+<div
+  fxFlex="100"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  class="Container"
+>
+  <mat-card fxFlex.xs="80" class="login-card">
+    <mat-card-header id="header">
+      <mat-card-title>Sign Up</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="profileForm">
+        <div class="name-div">
+          <mat-form-field
+            id="name-form-field"
+            appearance="outline"
+            [style.font-size.px]="13"
+          >
+            <mat-label>first name</mat-label>
+            <input
+              matInput
+              placeholder="enter first name"
+              formControlName="firstName"
+              autocomplete="nope"
+            />
+            <mat-error *ngIf="hasError('firstName', 'required')"
+              >fist name can not empty</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field
+            id="name-form-field"
+            appearance="outline"
+            [style.font-size.px]="13"
+          >
+            <mat-label>last name</mat-label>
+            <input
+              matInput
+              placeholder="enter last name"
+              formControlName="lastName"
+              autocomplete="nope"
+            />
+            <mat-error *ngIf="hasError('lastName', 'required')"
+              >last name can not empty</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <mat-form-field
+          id="username-form-field"
+          appearance="outline"
+          [style.font-size.px]="13"
+        >
+          <mat-label>email address</mat-label>
+          <input
+            matInput
+            placeholder="enter email id"
+            formControlName="email"
+            type="email"
+          />
+          <mat-error *ngIf="hasError('email', 'required')"
+            >email can not empty</mat-error
+          >
+          <mat-error *ngIf="hasError('email', 'email')"
+            >email is not valid</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field
+          id="password-form-field"
+          appearance="outline"
+          [style.font-size.px]="13"
+        >
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Enter password"
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            autocomplete="nope"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="hasError('password', 'required')"
+            >password can not empty</mat-error
+          >
+          <mat-error *ngIf="hasError('password', 'minlength')"
+            >password length must have 8 character</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field
+          id="confirm-password-form-field"
+          appearance="outline"
+          [style.font-size.px]="13"
+          autocomplete="nope"
+        >
+          <mat-label> Confirm Password</mat-label>
+          <input
+            matInput
+            placeholder="Enter confirm password"
+            type="password"
+            formControlName="confirmPassword"
+          />
+          <mat-error *ngIf="hasError('confirmPassword', 'required')"
+            >confirm password can not empty</mat-error
+          >
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <div class="action-buttons">
+      <button id="btnCancel" mat-raised-button (click)="cancel()">
+        Cancel
+      </button>
+
+      <button id="btnRegister" mat-raised-button (click)="register()">
+        Register
+      </button>
+    </div>
+  </mat-card>
+</div>

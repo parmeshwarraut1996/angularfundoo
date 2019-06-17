@@ -1,0 +1,79 @@
+<div
+  fxFlex="100"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  class="Container"
+>
+  <mat-card fxFlex.xs="80" class="login-card">
+    <mat-card-header id="header">
+      <mat-card-title>Fundoo Notes</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="loginForm">
+        <mat-form-field
+          id="username-form-field"
+          appearance="outline"
+          [style.font-size.px]="13"
+         
+
+        >
+          <mat-label>User name</mat-label>
+
+          <input matInput placeholder="enter user name" 
+          autocomplete="off"
+          formControlName="email"
+/>
+          <button
+            mat-icon-button
+            matSuffix
+           
+          >
+            <mat-icon matSuffix>email</mat-icon>
+          </button>
+          <mat-error *ngIf="hasError('email', 'required')"
+          >email can not empty</mat-error
+        >
+        <mat-error *ngIf="hasError('email', 'email')"
+        >email is not valid</mat-error
+      >
+        </mat-form-field>
+        <mat-form-field
+          id="password-form-field"
+          appearance="outline"
+          [style.font-size.px]="13"
+         
+        >
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Enter password"
+            [type]="hide ? 'password' : 'text'"
+            autocomplete="off"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="hasError('password', 'required')"
+          >password can not empty</mat-error
+        >
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <div class="action-buttons">
+      <div class="buttons-div">
+        <div class="btnSignUp" (click)="register()">Sign Up</div>
+        <button id="btnLogin" mat-raised-button (click)="login()">
+          Login
+        </button>
+      </div>
+      <div class="btnForget">forget Password ?</div>
+    </div>
+  </mat-card>
+</div>

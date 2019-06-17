@@ -1,0 +1,60 @@
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-card {
+    width: 350px;
+    height: 350px;
+    border: 1px solid #e1e1d0;
+    border-radius: 10px;
+}
+#header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px
+    
+}
+.cardInnerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.content{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.btnSignUp{
+    cursor: pointer;
+    color: dodgerblue
+}
+.buttons-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+#btnLogin{
+   
+    background-color: dodgerblue;
+    width: 90px
+}
+.btnForget{
+    cursor: pointer;
+    margin-top: 20px;
+    color: dodgerblue
+ 
+}
+#username-form-field{
+    width: 100%;
+
+    
+}
+#password-form-field{
+    width:100%
+}
